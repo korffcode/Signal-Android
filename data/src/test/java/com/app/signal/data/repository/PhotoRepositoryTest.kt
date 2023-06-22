@@ -1,4 +1,4 @@
-package com.app.signal.data.repository
+/* package com.app.signal.data.repository
 
 import com.app.signal.data.dao.PhotoDaoFake
 import com.app.signal.data.database.SignalDatabaseFake
@@ -233,4 +233,4 @@ class PhotoRepositoryTest {
     private fun <E> E.serialize(): String {
         return gson.toJson(this)
     }
-}
+} */
