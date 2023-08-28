@@ -3,130 +3,19 @@ coverage:
     project:
       default:
         # basic
-        target: 3%
-        threshold: 1%
+        target: 70%
+        threshold: 10%
+        # flags: 
+        #   - unit
+        # paths: 
+        #   - "src"
+       # advanced settings
+        # branches: 
+        #   - main
         if_ci_failed: error #success, failure, error, ignore
         informational: false
         only_pulls: false
     patch:
       default:
-        target: 3%
-        threshold: 1%
-#name: Build, Test, and Validate Coverage
-#
-#on:
-#  push:
-#    branches:
-#      - dev
-#  pull_request:
-#    branches:
-#      - dev
-#
-#jobs:
-#  build-and-test:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v2
-#
-#      - name: Set up JDK
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y openjdk-11-jdk
-#
-#      - name: Install Android SDK
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y curl
-#          mkdir android-sdk
-#          cd android-sdk
-#          curl -fsSLO "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
-#          unzip -q commandlinetools-linux-7583922_latest.zip
-#          export ANDROID_SDK_ROOT=$PWD
-#          export PATH=$PATH:$PWD/cmdline-tools/bin
-#          yes | cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-33"
-#
-#      - name: Update Gradle Wrapper Permissions
-#        run: chmod +x ./gradlew
-#
-#      - name: Install dependencies
-#        run: ./gradlew dependencies
-#
-#      - name: Build and test
-#        run: ./gradlew build
-#
-#      - name: Run unit tests
-#        run: ./gradlew debugCoverage
-#
-#      - name: Merge all test
-#        run: ./gradlew allDebugCoverage
-#
-#      - name: Save coverage report as artifact
-#        if: always()  # Save the artifact even if previous steps fail
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: coverage-report
-#          path: ./build/reports/jacoco/allDebugCoverage/allDebugCoverage.xml
-#
-#  validate-coverage:
-#    needs: build-and-test
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v2
-#
-#      - name: Download coverage report artifact
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: coverage-report
-#          path: coverage-report
-#
-#      - name: Install jq
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y jq
-#
-#      - name: Validate coverage
-#        run: |
-#          coverage_report_path="/home/runner/work/Signal-Android/Signal-Android/coverage-report"
-#          if [ -f "$coverage_report_path" ]; then
-#            coverage=$(cat "$coverage_report_path" | grep -oP '(?<=<counter type="INSTRUCTION">)[^<]+')
-#            if [ -z "$coverage" ]; then
-#              echo "Coverage report is empty."
-#              exit 1
-#            elif [ "${coverage%.*}" -ge 60 ]; then
-#              echo "Coverage meets the threshold."
-#            else
-#              echo "Coverage does not meet the threshold."
-#              exit 1
-#            fi
-#          else
-#            echo "Coverage report not found."
-#            exit 1
-#          fi
-#
-#      - name: Upload coverage reports to Codecov
-#        uses: codecov/codecov-action@v3
-#        with:
-#          file: ./coverage-report/build/reports/jacoco/allDebugCoverage/allDebugCoverage.xml
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-#
-#  merge-and-upload-coverage:
-#    needs: validate-coverage
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v2
-#
-#      # Your merge command here
-#
-#      - name: Upload coverage reports to Codecov
-#        uses: codecov/codecov-action@v3
-#        with:
-#          file: ./coverage-report/build/reports/jacoco/allDebugCoverage/allDebugCoverage.xml
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        target: 60%
+        threshold: 20%
