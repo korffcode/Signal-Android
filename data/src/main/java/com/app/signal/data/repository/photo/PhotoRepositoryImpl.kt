@@ -29,4 +29,8 @@ data class PhotoRepositoryImpl @Inject constructor(
     override fun removeSavedPhoto(id: String) = mediator.execSave(
         save = { local.removePhoto(id) }
     )
+
+    override fun markPhotoAsFavourite(id: String) = mediator.execSave(
+        save = { local.markPhotoAsFavourite(id) }
+    )
 }

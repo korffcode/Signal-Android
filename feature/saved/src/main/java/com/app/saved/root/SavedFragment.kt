@@ -135,6 +135,7 @@ internal class SavedFragment : ActionBarToolbarFragment(R.layout.fragment_saved)
         when (action) {
             is SavedAction.Delete -> onDeletePhoto(action.photo.id)
             is SavedAction.Select -> toImageDetail(action.photo)
+            is SavedAction.MarkAsFavourite -> onMarkPhotoAsFavourite(action.photo.id)
         }
     }
 
@@ -151,6 +152,20 @@ internal class SavedFragment : ActionBarToolbarFragment(R.layout.fragment_saved)
             vm.deletePhoto(id).collect { state ->
                 when (state) {
                     is State.Success -> onPhotoDeleted()
+                    is State.Error -> presentAlert(throwable = state.cause)
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun onMarkPhotoAsFavourite(id: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            vm.markPhotoAsFavourite(id).collect { state ->
+                when (state) {
+                    is State.Success -> {
+                        //noop
+                    }
                     is State.Error -> presentAlert(throwable = state.cause)
                     else -> {}
                 }

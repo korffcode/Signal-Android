@@ -15,6 +15,8 @@ interface PhotoLocalStore {
     suspend fun savePhoto(dto: Photo): Flow<Long>
 
     suspend fun removePhoto(id: String): Flow<Int>
+
+    suspend fun markPhotoAsFavourite(id: String): Flow<Int>
 }
 
 data class PhotoRoomStore @Inject constructor(
@@ -36,10 +38,19 @@ data class PhotoRoomStore @Inject constructor(
                         dto.img.largeImageUrl,
                         dto.img.thumbNailUrl
                     ),
-                    dto.title
+                    dto.title,
+                    false
                 )
 
                 trySend(photoDao.insertOrUpdate(entity))
+            }
+        }
+    }
+
+    override suspend fun markPhotoAsFavourite(id: String): Flow<Int> {
+        return channelFlow {
+            db.withTransaction {
+                trySend(photoDao.markAsFavourite(id))
             }
         }
     }

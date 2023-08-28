@@ -14,4 +14,7 @@ abstract class PhotoDao : AnyDao<PhotoEntity>() {
     @Query("DELETE FROM `photo` WHERE id=:id")
     abstract suspend fun deletePhoto(id: String): Int
 
+    @Query("UPDATE `photo` SET isFavourite = 0 WHERE id=:id")
+    abstract suspend fun markAsFavourite(id: String): Int
+
 }
