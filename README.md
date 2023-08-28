@@ -1,5 +1,10 @@
 
-[![codecov](https://codecov.io/github/yavuzBahceci/Signal-Android/branch/dev/graph/badge.svg?token=AKII7C3LR0)](https://codecov.io/github/yavuzBahceci/Signal-Android)
+[![codecov](https://codecov.io/gh/HarisHoulis/Signal-Android/graph/badge.svg?token=4X9K0Q1VUT)](https://codecov.io/gh/HarisHoulis/Signal-Android)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=HarisHoulis_Signal-Android&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=HarisHoulis_Signal-Android)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=HarisHoulis_Signal-Android&metric=coverage)](https://sonarcloud.io/summary/new_code?id=HarisHoulis_Signal-Android)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HarisHoulis_Signal-Android&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=HarisHoulis_Signal-Android)
+
+
 
 ## Signal is a Photo searching application 
 
