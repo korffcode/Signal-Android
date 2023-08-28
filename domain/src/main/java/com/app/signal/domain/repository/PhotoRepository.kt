@@ -23,4 +23,6 @@ interface PhotoRepository {
     fun savePhoto(photo: Photo): Flow<LongState>
 
     fun removeSavedPhoto(id: String): Flow<IntState>
+
+    fun markPhotoAsFavourite(id: String): Flow<IntState>
 }

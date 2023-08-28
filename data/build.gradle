@@ -22,7 +22,6 @@ android {
     buildTypes {
 
         debug {
-            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'BASE_URL', '"https://api.flickr.com/services/rest/"'

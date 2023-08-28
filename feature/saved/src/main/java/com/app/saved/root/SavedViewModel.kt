@@ -29,6 +29,12 @@ internal data class SavedViewModel @Inject constructor(
             .stateIn(viewModelScope, SharingStarted.Lazily, State.Loading())
     }
 
+    suspend fun markPhotoAsFavourite(photoId: String): StateFlow<State<Int>> {
+        return photoService.markPhotoAsFavourite(photoId)
+            .flowOn(Dispatchers.IO)
+            .stateIn(viewModelScope, SharingStarted.Lazily, State.Loading())
+    }
+
 
     val savedPhotos = _refreshTrigger.flatMapLatest {
         photoService.getSavedPhotos()

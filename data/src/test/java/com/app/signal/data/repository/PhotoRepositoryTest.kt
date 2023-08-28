@@ -152,7 +152,8 @@ class PhotoRepositoryTest {
             PhotoEntity(
                 "testId",
                 ImageDto(null, null, null),
-                title = "test title"
+                title = "test title",
+                isFavourite = false
             )
         ).toList()
 
@@ -191,7 +192,8 @@ class PhotoRepositoryTest {
             PhotoEntity(
                 "testId",
                 ImageDto(null, null, null),
-                title = "test title"
+                title = "test title",
+                isFavourite = false
             )
         ).toList()
 

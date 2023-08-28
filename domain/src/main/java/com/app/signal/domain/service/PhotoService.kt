@@ -19,4 +19,5 @@ interface PhotoService {
     suspend fun savePhoto(photo: Photo): Flow<LongState>
 
     suspend fun deletePhoto(id: String): Flow<IntState>
+    suspend fun markPhotoAsFavourite(id: String): Flow<IntState>
 }

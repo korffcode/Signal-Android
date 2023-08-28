@@ -52,6 +52,15 @@ data class PhotoServiceImpl @Inject constructor(
         return request.await()
     }
 
+    override suspend fun markPhotoAsFavourite(id: String): Flow<IntState> {
+        val request = coroutineScope {
+            async {
+                photoRepository.markPhotoAsFavourite(id)
+            }
+        }
+        return request.await()
+    }
+
     private fun saveSearch(searchText: String) {
         val currentList = storage.previousSearches.toMutableList()
         if (currentList.contains(searchText)) {

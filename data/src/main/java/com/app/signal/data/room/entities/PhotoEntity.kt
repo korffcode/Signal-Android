@@ -8,7 +8,8 @@ import com.app.signal.domain.model.photo.Photo
 data class PhotoEntity(
     override val id: String,
     val image: AnyImageDto,
-    override val title: String
+    override val title: String,
+    val isFavourite: Boolean
 ) : Photo {
     override val img: AnyImageDto
         get() = image
