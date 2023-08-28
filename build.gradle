@@ -5,6 +5,15 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version "1.7.21" apply false
     id 'com.google.dagger.hilt.android' version '2.44' apply false
     id 'jacoco'
+    id "org.sonarqube" version "4.2.1.3168"
 }
 
 apply from: 'jacoco/project.gradle'
+
+sonar {
+    properties {
+        property "sonar.projectKey", "HarisHoulis_Signal-Android"
+        property "sonar.organization", "harishoulis"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
